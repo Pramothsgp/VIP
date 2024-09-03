@@ -12,18 +12,22 @@ import NavBar from "./Components/NavBar/NavBar";
 
 const Content = () => {
   return (
-    <div>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+    <div className="App-container">
+      <nav>
+        <NavBar />
+      </nav>
+      <section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </section>
     </div>
   );
 };
 
 function App() {
   return (
-    <div className="App-container">
+    <div className="app container">
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
