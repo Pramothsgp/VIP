@@ -1,0 +1,19 @@
+.job-card{
+    flex: 1 1 calc(33.33% - 30px);
+    padding: 25px;
+    /* width: 33%; */
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px #000;
+}
+
+@media screen and (max-width:900px) {
+    .job-card{
+        flex: 1 1 calc(50%-30px);
+    }
+}
+@media screen and (max-width:620px) {
+    .job-card{
+        flex: 1 1 100%;
+    }
+}

@@ -1,0 +1,109 @@
+.navbar.container {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,20%);
+    background: linear-gradient(90deg,#efecef,#b5b2ba);
+    height: 80px;
+    padding: 10px 0 0 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 5px #0f0f0f,2px 3px 8px #020202;
+    width: 90%;
+}
+.nav-list-container{
+    height: 70px;
+}
+.nav-list {
+    display: flex;
+    justify-content: end;
+    column-gap: 40px;
+    padding: 20px 150px 10px 0;
+    list-style-type: none;
+}
+.nav-content a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #000;
+    display: grid;
+    place-items: center;
+}
+.nav-content a:hover {
+    background-color: #7b7d7f;
+    opacity: 0.3;
+}
+
+.profile-card-nav {
+    scale: 0.15;
+    position: relative;
+    top: 0;
+    left: 20px;
+    height: 0;
+    width: 20px;
+}
+
+.profile-card-nav .profile-image{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.logout-button{
+    /* border: none; */
+    padding: 8px 15px;
+    border-radius: 20px;
+    position: relative;
+    top: -5px;
+    background: transparent;
+}
+.logout-button:hover {
+    background: #efecef;
+    box-shadow: 0 2px 5px #000;
+}
+.logout-button:active {
+    box-shadow: 0 2px 5px #000;
+    scale: 0.8;
+}
+
+.toggle-menu{
+    position: relative;
+    right: 30px;
+    top: 23%;
+}
+.toggle-menu svg{
+    height: 30px;
+    width: 30px;
+}
+
+.nav-list.column{
+    position: relative;
+    flex-direction: column ;
+    width: 100vw;
+    justify-content: center;
+    background: linear-gradient(90deg,#efecef,#b5b2ba);
+    top: 55px;
+    left: 50%;
+    transform: translateX(-55%);
+    border-radius: 30px;
+    padding: 0;
+}
+.nav-list.column li{
+    width: 98vw;
+}
+.nav-list.column .logout-button {
+    left: 50%;
+    width: 98vw;
+    transform: translateX(-50%);
+}
+.mobile-nav-bar svg{
+    /* display: flex;
+    justify-content: end; */
+    position: absolute;
+    right: 15%;
+}
