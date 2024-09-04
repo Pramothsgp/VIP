@@ -3,7 +3,7 @@
     top: 0%;
     left: 50%;
     transform: translate(-50%,20%);
-    background: linear-gradient(90deg,#efecef,#b5b2ba);
+    background: linear-gradient(90deg,#efecef,#ddcdf5);
     height: 80px;
     padding: 10px 0 0 10px;
     border-radius: 20px;
@@ -26,15 +26,17 @@
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 0 10px;
     border-radius: 50px;
     color: #000;
     display: grid;
     place-items: center;
+    transition: 0.3s;
 }
 .nav-content a:hover {
     background-color: #7b7d7f;
     opacity: 0.3;
+    padding: 10px 20px;
 }
 
 .profile-card-nav {
@@ -61,10 +63,13 @@
     position: relative;
     top: -5px;
     background: transparent;
+    transition: 0.3s;
 }
 .logout-button:hover {
     background: #efecef;
     box-shadow: 0 2px 5px #000;
+    border: none;
+    scale: 1.2;
 }
 .logout-button:active {
     box-shadow: 0 2px 5px #000;
@@ -92,6 +97,7 @@
     transform: translateX(-55%);
     border-radius: 30px;
     padding: 0;
+    gap: 20px;
 }
 .nav-list.column li{
     width: 98vw;

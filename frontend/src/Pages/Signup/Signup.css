@@ -3,6 +3,7 @@
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
+	
 }
 
 .screen {		
@@ -91,6 +92,10 @@
 	font-weight: 700;
 	width: 75%;
 	transition: .2s;
+	font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
 .password.icon {
