@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
@@ -17,6 +18,7 @@ const Login = () => {
       username,
       password,
     };
+    toast('user login successfy');
 		localStorage.setItem("userdata", JSON.stringify(logindata));
 		navigate('/home');
   };

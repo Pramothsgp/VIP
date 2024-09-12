@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import './Signup.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showcnfrmPassword, setShowcnfrmPassword] = useState(false);
-  
+  const navigate = useNavigate();
   const handlePasswordShow = () => {
     setShowPassword((stat) => !stat);
   }
@@ -56,7 +56,7 @@ const Signup = () => {
                 Login
               </Link>
             </p>
-            <button className="button signup_submit">
+            <button className="button signup_submit" onClick={()=>{navigate('/login')}}>
               <span className="button_text">Sign Up</span>
             </button>
           </form>
