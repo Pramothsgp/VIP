@@ -1,6 +1,6 @@
 import React from "react";
 import './SideBar.css'
-import { jobTypes } from "../../../Data/jobList";
+
 const SideBar = ({
   handleJobTypeChange,
   selectedJobType,
@@ -9,6 +9,7 @@ const SideBar = ({
   salaryRange,
   handleSalaryRangeChange,
 }) => {
+  const jobTypes = ["All", "Full-Time", "Part-Time", "Contractual", "Internship"];
   const jobSetups = ["All", "Remote", "Hybrid", "On-site"];
 
   return (
@@ -73,7 +74,7 @@ const SideBar = ({
               <input
                 type="range"
                 min="0"
-                max="355000"
+                max="2000000"
                 value={salaryRange[1]}
                 onChange={(e) =>
                   handleSalaryRangeChange([salaryRange[0], parseInt(e.target.value)])

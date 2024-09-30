@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Jobs.css';
-import { jobList } from "../../Data/jobList";
+
 import SideBar from "./Sidebar/SideBar";
-import Footer from "../Footer/Footer";
 
 function Jobs() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/getjobs");
+        const data = await response.json();
+        setJobs(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  const [jobs, setJobs] = useState([]);
   const [selectedJobType, setSelectedJobType] = useState("All");
   const [selectedJobSetup, setSelectedJobSetup] = useState("All");
-  const [salaryRange, setSalaryRange] = useState([0, 40000]);
+  const [salaryRange, setSalaryRange] = useState([0, 500000]);
   const [currentPage, setCurrentPage] = useState(1);
   
   const scrollToTop = () => {
@@ -35,7 +47,7 @@ const handlePageChange = async (page) => {
   setCurrentPage(page);
 };
 
-  const filteredJobs = jobList.filter((job) => {
+  const filteredJobs = jobs.filter((job) => {
     const jobTypeMatch = selectedJobType === "All" || job.jobType.includes(selectedJobType);
     const jobSetupMatch = selectedJobSetup === "All" || job.setup.includes(selectedJobSetup);
     const salaryMatch = job.salary >= salaryRange[0] && job.salary <= salaryRange[1];
@@ -47,12 +59,19 @@ const handlePageChange = async (page) => {
   const startIndex = (currentPage - 1) * jobsPerPage;
   const endIndex = startIndex + jobsPerPage;
   const currentJobs = filteredJobs.slice(startIndex, endIndex);
-
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(filteredJobs.length / jobsPerPage); i++) {
     pageNumbers.push(i);
   }
 
+  const truncateText = (text, maxWords) => {
+    const wordsArray = text.split(" ");
+    if (wordsArray.length > maxWords) {
+      return wordsArray.slice(0, maxWords).join(" ") + "...";
+    }
+    return text;
+  };
+  
   return (
     <div className="jobs">
       <main className="main">
@@ -77,10 +96,10 @@ const handlePageChange = async (page) => {
                     </span>
                   </div>
                   <div className="job-description">
-                    <p>{job.description}</p>
+                    <p>{truncateText(job.description , 25)}</p>
                   </div>
                   <div className="job-detail">
-                    <span className="salary"><span>₹{job.salary}</span>/month</span>
+                    <span className="salary"><span>₹{job.salary}</span>/anum</span>
                     <span className="date">{job.date}</span>
                   </div>
                   <div className="job-actions">
