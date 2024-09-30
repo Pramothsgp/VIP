@@ -12,7 +12,7 @@ const NavList = ({Style}) => {
       <div>
           <ul className={`nav-list ${Style}`}>
             <li className="nav-content">
-              <Link to="/Home">Home</Link>
+              <Link to="jobs">Jobs</Link>
             </li>
             <li className="nav-content">
               <Link to="/Home">Home</Link>

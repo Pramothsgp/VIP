@@ -1,0 +1,41 @@
+.landingPage-header{
+    height: fit-content;
+    background: #000;
+    background: url(../../../public/headfer-img.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.landingPage{
+    display: grid;
+    gap: 20px;
+    background: #fff;
+    width: 100%;
+    min-width: fit-content;
+}
+
+
+.join-us{
+    height: 400px;
+    width: 100%;
+    background:url(../../../public/group-discussion.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.join-us-btn{
+    height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    background: #3798ed;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}

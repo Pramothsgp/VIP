@@ -6,7 +6,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Profile = ({ setshowProfile }) => {
   return (
-    <Card>
+    <Card display={setshowProfile}>
       <div className="profile container">
         <div
           className="close-icon-container"
