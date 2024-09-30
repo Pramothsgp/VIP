@@ -42,7 +42,6 @@ const Login = () => {
       navigate('/home');
     } catch (error) {
       console.error('Error:', error);
-      toast.error('Invalid username or password');
       toast.error(error.response.data.message);
     }
   };

@@ -9,9 +9,11 @@ const login = (req, res) => {
             res.status(500).json({ message: 'Internal Server Error' });
         } else {
             if (result.length > 0) {
+                console.log(result)
                 res.status(200).json({ message: 'Login successful' });
             } else {
-                res.status(401).json({ message: 'Invalid username or password11' });
+                console.log(result)
+                res.status(401).json({ message: 'Invalid username or password' });
             }
         }
     });

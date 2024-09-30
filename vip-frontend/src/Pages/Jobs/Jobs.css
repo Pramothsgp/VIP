@@ -2,10 +2,11 @@
   display: grid;
   column-gap: 20px;
   grid-template-columns: auto 1fr;
-
+  width: 100%;
 }
 
 .jobs .main .job-container {
+  /* width: 600px; */
   padding: 20px;
 }
 

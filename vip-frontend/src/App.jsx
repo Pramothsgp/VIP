@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import Jobs from "./Pages/Jobs/Jobs";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import AddJob from "./Pages/Addjob/AddJob";
 
 const Content = () => {
   return (
@@ -23,7 +24,7 @@ const Content = () => {
       <section>
         <Routes>
           <Route path="/*" element={<Home />} />
-          {/* <Route path="/jobs" element={<Jobs />} /> */}
+          <Route path="addjobs" element={<AddJob />} />
         </Routes>
       </section>
     </div>
