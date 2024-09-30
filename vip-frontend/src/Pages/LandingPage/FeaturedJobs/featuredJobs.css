@@ -1,0 +1,46 @@
+.featured-jobs{
+    padding: 20px;
+}
+.jobs-list{
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+.featured-job-card{
+    flex: 1;
+    height: fit-content;
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px #000;
+}
+.job-img{
+    height: 200px;
+    width: 100%;
+    border-radius: 30px 30px 0 0 ;
+    background: url(../../../../public/job.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.job-data{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.apply-btn{
+    height: 40px;
+    border-radius: 5px;
+    color: #ffffff;
+    background: rgba(171, 113, 247, 0.533);
+    border: none;
+}
+
+@media screen and (max-width:520px) {
+    .jobs-list{
+        flex-direction: column;
+    }    
+}

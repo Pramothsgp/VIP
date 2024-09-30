@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import { toast } from "react-toastify";
+import axios from "axios";
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
+
 	const navigate = useNavigate();
   const handlePasswordShow = () => {
     setShowPassword((stat) => !stat);
@@ -14,10 +18,7 @@ const Login = () => {
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (username.length < 1 || password.length < 8) {
-        toast.warn("Invalid userId or password", { position: 'top-center' });
-        return;
-      }
+      
       const logindata = {
         username,
         password,
@@ -28,15 +29,22 @@ const Login = () => {
       return;
     }    
   }
-  const handleSubmit = (e) => {
-		e.preventDefault();
-    const logindata = {
-      username,
-      password,
-    };
-    toast('user login successfy');
-		localStorage.setItem("userdata", JSON.stringify(logindata));
-		navigate('/home');
+
+  
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    
+    
+    try {
+      await axios.post('http://localhost:5000/api/login', {username, password}); 
+      localStorage.setItem("token", true);
+      toast('user login successfy');
+      navigate('/home');
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Invalid username or password');
+      toast.error(error.response.data.message);
+    }
   };
   return (
     <div className="login-form container">
@@ -49,7 +57,9 @@ const Login = () => {
                 className="login_input"
                 placeholder="Email"
                 required
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
               />
             </div>
             <div className="login_field">
@@ -58,8 +68,9 @@ const Login = () => {
                 className="login_input"
                 placeholder="Password"
                 required
-                minLength="8"
-                onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
                 onKeyDown={handleEnter}
               />
               <div className="password icon pswd" onClick={handlePasswordShow}>
@@ -67,7 +78,7 @@ const Login = () => {
               </div>
             </div>
             <p className="link_to_Signup">
-            <span>Dont't have an account</span>
+            <span>Dont&apos;t have an account</span>
               <Link to="/signup" className="signup link">
                 Signup
               </Link>
@@ -78,10 +89,10 @@ const Login = () => {
           </form>
         </div>
         <div className="screen_background">
-          <span className="screen_background_shape screen_background_shape4"></span>
-          <span className="screen_background_shape screen_background_shape3"></span>
-          <span className="screen_background_shape screen_background_shape2"></span>
-          <span className="screen_background_shape screen_background_shape1"></span>
+          <span className="screen_background_shape screen_background_shape4"/>
+          <span className="screen_background_shape screen_background_shape3"/>
+          <span className="screen_background_shape screen_background_shape2"/>
+          <span className="screen_background_shape screen_background_shape1"/>
         </div>
       </div>
     </div>

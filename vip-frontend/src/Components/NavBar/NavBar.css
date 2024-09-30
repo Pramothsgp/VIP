@@ -11,6 +11,7 @@
     justify-content: space-between;
     box-shadow: 0 1px 5px #0f0f0f,2px 3px 8px #020202;
     width: 90%;
+    z-index: 100;
 }
 .nav-list-container{
     height: 70px;
