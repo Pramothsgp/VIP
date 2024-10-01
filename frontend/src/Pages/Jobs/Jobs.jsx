@@ -5,6 +5,18 @@ import SideBar from "./Sidebar/SideBar";
 import axios from "axios";
 
 function Jobs() {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:5000/api/getjobs");
+  //       const data = await response.json();
+  //       setJobs(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const [jobs, setJobs] = useState([]);
   const [selectedJobType, setSelectedJobType] = useState("All");
@@ -21,6 +33,10 @@ function Jobs() {
       } catch (error) {
         console.error("Error fetching data:", error);
     }
+    
+    console.log(selectedJobSetup);
+    console.log(selectedJobType);
+    console.log(salaryRange);
     }
     fetchSpeceficdata();
   }, [selectedJobType, selectedJobSetup, salaryRange]);
@@ -49,12 +65,20 @@ const handlePageChange = async (page) => {
   setCurrentPage(page);
 };
 
+  const filteredJobs = jobs.filter((job) => {
+    const jobTypeMatch = selectedJobType === "All" || job.jobType.includes(selectedJobType);
+    const jobSetupMatch = selectedJobSetup === "All" || job.setup.includes(selectedJobSetup);
+    const salaryMatch = job.salary >= salaryRange[0] && job.salary <= salaryRange[1];
+
+    return jobTypeMatch && jobSetupMatch && salaryMatch;
+  });
+
   const jobsPerPage = 10;
   const startIndex = (currentPage - 1) * jobsPerPage;
   const endIndex = startIndex + jobsPerPage;
   const currentJobs = jobs.slice(startIndex, endIndex);
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(jobs.length / jobsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(filteredJobs.length / jobsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -124,6 +148,7 @@ const handlePageChange = async (page) => {
                  &gt;
               </button>
             </div>
+            {/* <Pagination currentPage={ currentPage} totalPages={totalPages} onPageChange={setCurrentPage} /> */}
           </div>
         </div>
       </main>

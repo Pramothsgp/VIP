@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import Jobs from "./Pages/Jobs/Jobs";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import AddJob from "./Pages/Addjob/AddJob";
+import AdminLanding from "./Pages/Admin/AdminLanding/AdminLanding";
 
 const Content = () => {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home/*" element={<Content />} />
+          <Route path='/admin' element={<AdminLanding />} />
         </Routes>
         <ToastContainer />
       </Router>

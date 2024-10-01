@@ -10,7 +10,7 @@ const {
 } = require("./Routes/Auth/authUser");
 
 const { addJob } = require("./Routes/Jobs/addJobs");
-const { getJobs } = require("./Routes/Jobs/getJobs");
+const { getJobs,getSpeceficJobs } = require("./Routes/Jobs/getJobs");
 app.use(cors());
 app.use(express.json());
 
@@ -24,6 +24,7 @@ app.post("/api/check-email/:email", checkEmail);
 app.post("/api/signup", signup);
 app.post("/api/addjob", addJob);
 app.get("/api/getjobs", getJobs);
+app.post("/api/getspeceficjobs", getSpeceficJobs);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

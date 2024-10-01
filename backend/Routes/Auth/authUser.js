@@ -9,10 +9,13 @@ const login = (req, res) => {
             res.status(500).json({ message: 'Internal Server Error' });
         } else {
             if (result.length > 0) {
-                console.log(result)
-                res.status(200).json({ message: 'Login successful' });
+                const user = result[0].email.split("@")[1].split(".")[0];
+                if (user === 'admin') {
+                    res.status(200).json({ admin: true  , message: 'Admin Login Successful'})
+                } else {
+                    res.status(200).json({ message: 'Login successful' });
+                }
             } else {
-                console.log(result)
                 res.status(401).json({ message: 'Invalid username or password' });
             }
         }

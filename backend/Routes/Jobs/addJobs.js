@@ -14,8 +14,10 @@ const addJob = (req, res) => {
         responsibilities,
         projects,
         jobType,
+        imagedata,
     } = req.body;
-    const imagedata = req.file; // Image file comes from multer
+    console.log(req.body);
+    // const imagedata = req.file; // Image file comes from multer
 
     const query = 'INSERT INTO jobs (title, location, setup, salary, description, companyName, qualification, responsibilities, projects, jobType, imagedata) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     const values = [
@@ -29,7 +31,7 @@ const addJob = (req, res) => {
         responsibilities,
         projects,
         jobType,
-        imagedata.filename, // Use filename from multer
+        imagedata, // Use filename from multer
     ];
 
     db.query(query, values, (err, result) => {
@@ -44,5 +46,5 @@ const addJob = (req, res) => {
 };
 
 module.exports = {
-    addJob: [upload.single('imagedata'), addJob]
+    addJob
 };
