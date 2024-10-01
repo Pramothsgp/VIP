@@ -18,15 +18,7 @@ const Login = () => {
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      
-      const logindata = {
-        username,
-        password,
-      };
-      toast('user login successfy');
-      localStorage.setItem("userdata", JSON.stringify(logindata));
-      navigate('/home');
-      return;
+      handleSubmit(e);
     }    
   }
 
@@ -36,10 +28,14 @@ const Login = () => {
     
     
     try {
-      await axios.post('http://localhost:5000/api/login', {username, password}); 
+      const response = await axios.post('http://localhost:5000/api/login', {username, password}); 
       localStorage.setItem("token", true);
-      toast('user login successfy');
-      navigate('/home');
+      toast(response.data.message);
+      if (response.data.admin) {
+        navigate('/admin');
+      } else {
+        navigate('/home');
+      }
     } catch (error) {
       console.error('Error:', error);
       toast.error(error.response.data.message);
