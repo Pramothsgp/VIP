@@ -1,0 +1,80 @@
+.total-jobs {
+  padding: 20px;
+  background-color: #2b2b2b;
+  /* max-width: 800px; */
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.total-jobs h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.admin-job-listings {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.admin-job-listing {
+  background-color: #3a3a3a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.admin-job-listing h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #61dafb;
+}
+
+.admin-job-listing p {
+  margin: 5px 0;
+  color: #cccccc;
+}
+
+.delete-job {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.delete-job:hover {
+  background-color: #ff1a1a;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-button {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .page-button:hover {
+    background-color: #61dafb;
+  }
+  
+  .page-button.active {
+    background-color: #61dafb;
+  }
+  

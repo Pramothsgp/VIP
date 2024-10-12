@@ -1,0 +1,58 @@
+.admin.side-bar {
+    width: 250px;
+    background-color: #2c3e50;
+    padding: 20px;
+    color: #ecf0f1;
+    font-family: Arial, sans-serif;
+}
+
+.job-application-data {
+    margin-top: 20px;
+}
+
+.job-application-data-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ecf0f1;
+}
+
+.job-application-data-body {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.job-application-data-body p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.job-application-data-body span {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.job-application-data-body p span {
+    color: #e74c3c;
+}
+
+.admin.side-bar {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.job-application-data-body p span {
+    background-color: #34495e;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.admin.side-bar .job-application-data-body p:hover {
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
