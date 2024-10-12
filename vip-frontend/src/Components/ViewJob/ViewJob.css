@@ -1,0 +1,55 @@
+.job-details-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.job-details-container .title {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.job-details-container .company-name {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.job-details-container .location,
+.job-details-container .setup,
+.job-details-container .salary,
+.job-details-container .job-type {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.job-details-container .job-description,
+.job-details-container .job-qualification,
+.job-details-container .job-responsibilities,
+.job-details-container .job-projects {
+  margin-top: 20px;
+}
+
+.job-details-container .job-description h3,
+.job-details-container .job-qualification h3,
+.job-details-container .job-responsibilities h3,
+.job-details-container .job-projects h3 {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.job-details-container .apply-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.job-details-container .apply-button:hover {
+  background-color: #218838;
+}

@@ -31,6 +31,9 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/api/login', {username, password}); 
       localStorage.setItem("token", true);
       toast(response.data.message);
+      const user =[response.data.user];
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(response.data.user);
       if (response.data.admin) {
         navigate('/admin');
       } else {

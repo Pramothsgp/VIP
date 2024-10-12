@@ -3,9 +3,11 @@ import './Jobs.css';
 
 import SideBar from "./Sidebar/SideBar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Jobs() {
 
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [selectedJobType, setSelectedJobType] = useState("All");
   const [selectedJobSetup, setSelectedJobSetup] = useState("All");
@@ -82,7 +84,7 @@ const handlePageChange = async (page) => {
             <h1>Showing Results : { jobs.length }</h1>
             <div className="job-listings">
               {currentJobs.map((job) => (
-                <div className="job-listing" key={job.title}>
+                <div className="job-listing" key={job.id}>
                   <div className="job-title">
                     <h2>{job.title}</h2>
                     <span className="location">
@@ -97,8 +99,8 @@ const handlePageChange = async (page) => {
                     <span className="date">{job.date}</span>
                   </div>
                   <div className="job-actions">
-                    <button className="view-details">View details</button>
-                    <button className="apply-now">Apply Now</button>
+                    <button className="view-details" onClick={()=>{navigate(`/home/ViewJob/${job.id}`)}}>View details</button>
+                    <button className="apply-now" onClick={() => { navigate(`/home/Applyjob/${job.id}`) }}>Apply Now</button>
                   </div>
                 </div>
               ))}
