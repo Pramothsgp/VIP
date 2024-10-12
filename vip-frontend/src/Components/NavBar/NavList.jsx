@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const NavList = ({Style}) => {
     const navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem("userdata");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
         navigate("/login");
       };
 
