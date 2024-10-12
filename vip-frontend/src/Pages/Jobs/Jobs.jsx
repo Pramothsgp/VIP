@@ -18,7 +18,6 @@ function Jobs() {
   const fetchSpeceficdata = async() => {
       try {
         const response = await axios.post("http://localhost:5000/api/getspeceficjobs", { job: selectedJobType, jobSetup: selectedJobSetup, salaryRange });
-        console.log(response.data);
         setJobs(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

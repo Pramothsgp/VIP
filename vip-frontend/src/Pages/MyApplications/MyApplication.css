@@ -67,6 +67,9 @@ h1 {
 .application-item .status.rejected {
   color: #dc3545;
 }
+.application-item .status.accepted {
+  color: #008000;
+}
 
 .application-item .application-date {
   font-size: 0.9rem;
@@ -74,6 +77,16 @@ h1 {
   margin-top: auto;
 }
 
+.application-item .delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 15px;
+}
 @media screen and (max-width: 768px) {
   .applications-list {
     grid-template-columns: 1fr;

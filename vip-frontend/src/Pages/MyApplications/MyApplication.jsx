@@ -34,6 +34,16 @@ const MyApplication = () => {
     fetchApplications();
   }, [user]);
 
+
+  const handleDelete = async (applicationId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/deleteapplication/${applicationId}`);
+      setApplications(applications.filter((application) => application.application_id !== applicationId));
+    } catch (err) {
+      console.error('Error deleting application:', err);
+    }
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -55,8 +65,9 @@ const MyApplication = () => {
               <p><strong>Company:</strong> {application.companyName}</p>
               <p><strong>Location:</strong> {application.location}</p>
               <p><strong>Salary:</strong> ₹{application.salary}</p>
-              <p><strong>Date Applied:</strong> {new Date(application.application_date).toLocaleDateString()}</p>
-              <p><strong>Status:</strong> {application.status || 'Pending'}</p>
+              <p className="application-date"><strong>Date Applied:</strong> {new Date(application.application_date).toLocaleDateString()}</p>
+              <p className={`status ${application.status.toLowerCase()}`}><strong>Status:</strong> {application.status}</p>
+              <button className='delete-button' onClick={()=>{handleDelete(application.application_id)}}>Cancle Application</button>
             </li>
           ))}
         </ul>
