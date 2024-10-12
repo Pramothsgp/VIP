@@ -13,6 +13,7 @@ const { getJobDetail } = require("./Routes/Jobs/getJobDetails");
 const { addJob } = require("./Routes/Jobs/addJobs");
 const { getJobs, getSpeceficJobs } = require("./Routes/Jobs/getJobs");
 const { applyJob ,getApplications, deleteApplications} = require("./Routes/Jobs/applyJob");
+const { getJobCount, getAllApplications, getPendingApplications } = require("./Routes/Admin/getJobdata");
 app.use(cors());
 app.use(express.json());
 
@@ -32,6 +33,9 @@ app.get("/api/Viewjob/:id", getJobDetail);
 app.post("/api/apply/:jobId", applyJob);
 app.get("/api/myapplications/:user_id", getApplications)
 app.delete("/api/deleteApplication/:application_id",deleteApplications);
+app.get("/api/jobs/totaljobs", getJobCount);
+app.get("/api/jobs/totalapplications", getAllApplications);
+app.get("/api/jobs/pendingapplications",getPendingApplications);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

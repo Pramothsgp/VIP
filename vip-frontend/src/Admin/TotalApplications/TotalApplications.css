@@ -1,0 +1,96 @@
+/* Dark mode styles */
+.total-applications {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #1e1e1e; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  .total-applications h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff; /* White heading */
+    font-weight: bold;
+  }
+  
+  .admin-applications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .application-item-list {
+    background-color: #2b2b2b; /* Darker card background */
+    border: 1px solid #444444; /* Border with a dark tone */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dark shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .application-item-list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow for hover */
+  }
+  
+  .application-item-list p {
+    font-size: 1rem;
+    color: #cccccc; /* Lighter text color */
+    margin: 5px 0;
+  }
+  
+  .application-item-list p strong {
+    color: #ffffff; /* Strong text in white */
+  }
+  
+  .application-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .application-actions button {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accept-application {
+    background-color: #28a745; /* Green */
+    color: white;
+  }
+  
+  .reject-application {
+    background-color: #dc3545; /* Red */
+    color: white;
+  }
+  
+  .application-actions button:hover {
+    opacity: 0.9;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .admin-applications-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Dark mode transitions and finer details */
+  .application-item-list {
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+  }
+  
+  .application-item-list p {
+    transition: color 0.3s;
+  }
+  
+  .total-applications h1 {
+    transition: color 0.3s;
+  }
+  
