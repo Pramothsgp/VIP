@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./ApplyJob.css";
+import { toast } from "react-toastify";
 
 const ApplyJob = () => {
   const { id } = useParams();
@@ -42,12 +43,11 @@ const ApplyJob = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
       const formData = [{ user_id: user_id, username: username, name: applicantName, email: applicantEmail }];
-    console.log(formData);
     try {
-      await axios.post(`http://localhost:5000/api/apply/${id}`, formData[0]);
-      alert("Application submitted successfully!");
+      const response = await axios.post(`http://localhost:5000/api/apply/${id}`, formData[0]);
+      toast.success(response.data.message);
     } catch (err) {
-      alert("Error submitting application.");
+      toast.error(err.message);
     }
   };
 

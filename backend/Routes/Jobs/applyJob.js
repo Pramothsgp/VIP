@@ -34,36 +34,22 @@ const getApplications = (req, res) => {
     });
 };
 
-// const getApplications = (req, res) => {
-//     const { user_id } = req.params;
-//     console.log(req.params);
-//     const query = `
-//         SELECT applications.application_id, applications.applicant_name, applications.application_date,
-//                jobs.title, jobs.companyName, jobs.location, jobs.salary, jobs.description 
-//         FROM applications
-//         JOIN jobs ON jobs.id = applications.job_id
-//         WHERE applications.user_id = ?;
-//     `;
-
-//     db.query(query, [user_id], (err, result) => {
-//         if (err) {
-//             console.error("Error fetching applications:", err);
-//             return res.status(500).json({ message: 'Error fetching applications' });
-//         }
-
-//         // Handle case when no applications are found
-//         if (result.length === 0) {
-//             return res.status(404).json({ message: 'No applications found for this user' });
-//         }
-
-//         // Return the applications with job details
-//         console.log(result);
-//         return res.status(200).json(result);
-//     });
-// };
-
+const deleteApplications = (req, res) => {
+    const { application_id } = req.params;
+    const query = `
+        DELETE FROM applications WHERE application_id = ?
+    `;
+    db.query(query, [application_id], (err, result) => {
+        if (err) {
+            console.error("Error deleting application:", err);
+            return res.status(500).json({ message: 'Error deleting application' });
+        }
+        return res.status(200).json({ message: 'Application deleted successfully!' });
+    });
+};
 
 module.exports = {
     applyJob,
-    getApplications
+    getApplications,
+    deleteApplications,
 };
