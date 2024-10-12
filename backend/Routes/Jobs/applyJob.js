@@ -2,9 +2,7 @@ const db = require("../../config/db");
 
 const applyJob = (req, res) => {
     const { jobId } = req.params;
-    console.log(req.body);
     const {user_id, username, name, email } = req.body;
-    console.log(user_id,jobId, username, name, email);
     const query = `
         INSERT INTO applications (user_id, job_id, username, applicant_name, applicant_email)
         VALUES (?, ?, ?, ?, ?)
