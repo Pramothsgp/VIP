@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import ApplyJob from '../../Components/ApplyJob/ApplyJob';
 import ViewJob from '../../Components/ViewJob/ViewJob';
+import MyApplication from '../MyApplications/MyApplication';
 
 const Home = () => {
   const [jobs, setJobs] = useState(jobList);
@@ -23,6 +24,7 @@ const Home = () => {
         }
       </div>} />
         <Route path='jobs' element={<Jobs />} />
+        <Route path='myapplications' element={<MyApplication />} />
         <Route path='Applyjob/:id' element={<ApplyJob />} />
         <Route path='ViewJob/:id' element={<ViewJob />} />
       </Routes>

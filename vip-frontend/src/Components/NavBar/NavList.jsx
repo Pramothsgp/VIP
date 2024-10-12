@@ -16,7 +16,7 @@ const NavList = ({Style}) => {
               <Link to="jobs">Jobs</Link>
             </li>
             <li className="nav-content">
-              <Link to="/Home">Home</Link>
+              <Link to="myapplications">My Applications</Link>
             </li>
             <li className="nav-content">
               <Link to="/Home">Home</Link>

@@ -1,0 +1,85 @@
+.my-applications-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
+}
+
+.applications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+
+.application-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.application-item h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.application-item p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.application-item p strong {
+  color: #333;
+}
+
+.application-item .status {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-top: 15px;
+  text-align: right;
+}
+
+.application-item .status.pending {
+  color: #ffc107;
+}
+
+.application-item .status.rejected {
+  color: #dc3545;
+}
+
+.application-item .application-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .applications-list {
+    grid-template-columns: 1fr;
+  }
+
+  .application-item {
+    padding: 20px;
+  }
+}
