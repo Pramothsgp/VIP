@@ -13,7 +13,6 @@ const TotalApplications = () => {
       .catch((err) => {
         console.log(err);
       });
-    console.log(totalApplications);
   }, []);
   return (
     <div className="total-applications">

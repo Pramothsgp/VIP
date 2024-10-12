@@ -19,6 +19,7 @@ const AdminNavBar = () => {
                 <li><Link to={'rejected-applications'}>Rejected Applications</Link></li>
                 <li><Link to={'cancelled-applications'}>Cancelled Applications</Link></li>
                 <li><Link to={'total-users'}>Total Users</Link></li>
+                <li><Link to={'add-job'}>Add Job</Link></li>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
             </ul>
         </nav>
