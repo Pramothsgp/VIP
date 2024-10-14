@@ -13,7 +13,6 @@ const AdminSidebar = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/totaljobs')
             .then((res) => {
-                console.log(res);
                 setTotalJobs(res.data.totalJobs);
             }).catch((err) => {
                 console.log(err);
@@ -22,7 +21,6 @@ const AdminSidebar = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/totalapplications')
             .then((res) => {
-                console.log(res);
                 setTotalApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
@@ -32,7 +30,6 @@ const AdminSidebar = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/pendingapplications')
             .then((res) => {
-                console.log(res);
                 setPendingApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
@@ -41,8 +38,7 @@ const AdminSidebar = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/acceptedapplications')
             .then((res) => {
-                console.log(res);
-                setAcceptedApplications(res.data.acceptedApplications);
+                setAcceptedApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
@@ -50,8 +46,7 @@ const AdminSidebar = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/rejectedapplications')
             .then((res) => {
-                console.log(res);
-                setRejectedApplications(res.data.rejectedApplications);
+                setRejectedApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
