@@ -21,15 +21,12 @@ const AddJob = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(jobData);
-
     try {
       const response = await axios.post(
         "http://localhost:5000/api/addjob",
         jobData 
         );
-        toast.success(response.data);
-      console.log(response.data);
+        toast.success(response.data.message);
     } catch (error) {
       console.error("Error adding job:", error);
     }
