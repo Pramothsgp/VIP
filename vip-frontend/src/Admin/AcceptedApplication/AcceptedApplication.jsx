@@ -17,12 +17,12 @@ const AcceptedApplication = () => {
     fetchAcceptedApplications();
   }, []);
   return (
-    <div className="total-appliocations">
+    <div className="total-applications">
       <h1>Accepted Applications</h1>
       <p>Accepted applications: {acceptedApplications.length}</p>
       <div className="admin-applications-list">
         {acceptedApplications.map((application) => (
-          <div className="application-item-list" key={application._id}>
+          <div className="application-item-list" key={application.application_id}>
             <p>Applicant Name: {application.applicant_name}</p>
             <p>Applicant Email: {application.applicant_email}</p>
             <p>Job Title: {application.title}</p>

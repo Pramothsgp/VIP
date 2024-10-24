@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Addjob.css";
 import { toast } from "react-toastify";
+import { updateContext } from "../../Admin/AdminLanding/AdminLanding";
 const AddJob = () => {
   const jobTypes = ["Full-Time", "Part-Time", "Contractual", "Internship"];
   const jobSetups = ["Remote", "Hybrid", "On-site"];
+  const {setUpdate} = useContext(updateContext);
   const [jobData, setJobData] = useState({
     title: "",
     location: "",
@@ -25,7 +27,8 @@ const AddJob = () => {
       const response = await axios.post(
         "http://localhost:5000/api/addjob",
         jobData 
-        );
+      );
+      setUpdate((prev) => !prev);
         toast.success(response.data.message);
     } catch (error) {
       console.error("Error adding job:", error);

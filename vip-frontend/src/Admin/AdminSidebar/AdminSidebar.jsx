@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
+import {updateContext} from '../AdminLanding/AdminLanding';
 import './AdminSidebar.css'
 
 const AdminSidebar = () => {
@@ -10,6 +11,8 @@ const AdminSidebar = () => {
     const [rejectedApplications, setRejectedApplications] = useState(0);
     const [totalUsers, setTotalUsers] = useState(0);
     const [cancledApplications, setCancelledApplications] = useState(0);
+
+    const {update} = useContext(updateContext);
     useEffect(() => {
         axios.get('http://localhost:5000/api/jobs/totaljobs')
             .then((res) => {
@@ -17,41 +20,35 @@ const AdminSidebar = () => {
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
-    useEffect(() => {
+    
         axios.get('http://localhost:5000/api/jobs/totalapplications')
             .then((res) => {
                 setTotalApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
-
-    useEffect(() => {
+    
         axios.get('http://localhost:5000/api/jobs/pendingapplications')
             .then((res) => {
                 setPendingApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
-    useEffect(() => {
+    
         axios.get('http://localhost:5000/api/jobs/acceptedapplications')
             .then((res) => {
                 setAcceptedApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
-    useEffect(() => {
+    
         axios.get('http://localhost:5000/api/jobs/rejectedapplications')
             .then((res) => {
                 setRejectedApplications(res.data.length);
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
-    useEffect(() => {
+    
         axios.get('http://localhost:5000/api/jobs/totalusers')
             .then((res) => {
                 console.log(res);
@@ -59,16 +56,15 @@ const AdminSidebar = () => {
             }).catch((err) => {
                 console.log(err);
             })
-    })
-    useEffect(() => {
-        axios.get('http://localhost:5000/api/jobs/cancelledapplications')
+    
+        axios.get('http://localhost:5000/api/jobs/cancelledapplications/count')
             .then((res) => {
                 console.log(res);
-                setCancelledApplications(res.data.cancelledApplications);
+                setCancelledApplications(res.data.count);
             }).catch((err) => {
                 console.log(err);
             })
-    }, []);
+    }, [update]);
     return (
         <div className='admin side-bar'>
             <div className='job-application-data'>
