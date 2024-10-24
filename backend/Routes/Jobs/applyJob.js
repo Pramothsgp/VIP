@@ -46,8 +46,32 @@ const deleteApplications = (req, res) => {
     });
 };
 
+const cancledApplications = (req, res) => {
+    const query = 'select * from canceled_applications';
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error("Error fetching applications:", err);
+            return res.status(500).json({ message: 'Error fetching applications' });
+        }
+        res.status(200).json(result);
+    });
+};
+
+const cancledApplicationsCount = (req, res) => {
+    const query = 'select count(*) AS count from canceled_applications';
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error("Error fetching applications:", err);
+            return res.status(500).json({ message: 'Error fetching applications' });
+        }
+        res.status(200).json({ count: result[0].count });
+    });
+};
+
 module.exports = {
     applyJob,
     getApplications,
     deleteApplications,
+    cancledApplications,
+    cancledApplicationsCount,
 };
