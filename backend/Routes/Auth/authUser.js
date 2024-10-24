@@ -63,9 +63,21 @@ const signup = (req, res) => {
         }
     });
 };
+
+const getTotalUsers = (req, res) => {
+    const query = 'SELECT count(*) AS usercount FROM userdata';
+    db.query(query, (err, result) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).json({ totalUsers: result[0].usercount });
+        }
+    });
+};
 module.exports = {
     login,
     checkUsername,
     checkEmail,
     signup,
+    getTotalUsers,
 };
