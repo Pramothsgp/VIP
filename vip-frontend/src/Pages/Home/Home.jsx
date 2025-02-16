@@ -3,7 +3,7 @@ import './Home.css'
 import { jobList } from '../../Data/JobData'
 import JobCard from '../../Components/JobCard/JobCard';
 import Jobs from '../Jobs/Jobs'
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import ApplyJob from '../../Components/ApplyJob/ApplyJob';
 import ViewJob from '../../Components/ViewJob/ViewJob';
@@ -15,14 +15,7 @@ const Home = () => {
     <div className='home container'>
       
       <Routes>
-        <Route path='/' element={
-          <div className='jobs'>
-        {
-          jobs.map((job, index) => (
-            <JobCard key={index} job ={ job } />
-          ))
-        }
-      </div>} />
+        <Route path='/' element={<Navigate to={'jobs'} />} />
         <Route path='jobs' element={<Jobs />} />
         <Route path='myapplications' element={<MyApplication />} />
         <Route path='Applyjob/:id' element={<ApplyJob />} />
