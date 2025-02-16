@@ -6,7 +6,7 @@ import TotalApplications from "../TotalApplications/TotalApplications";
 import "./AdminLanding.css";
 import PendingApplications from "../PendingApplications/PendingApplications";
 import TotalJobs from "../TotalJobs/TotalJobs";
-import Addjob from "../../Pages/AddJob/Addjob";
+import Addjob from "../../Pages/Addjob/AddJob";
 import AcceptedApplication from "../AcceptedApplication/AcceptedApplication";
 import RejectedApplication from "../RejectedApplication/RejectedApplication";
 import CancledApplication from "../CancledApplication/CancledApplication";
