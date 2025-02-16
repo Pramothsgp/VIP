@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 import JobSearch from "./JobSearch/JobSearch";
-import "./Landingpage.css";
+import "./LandingPage.css";
 import FeaturedJobs from "./FeaturedJobs/FeaturedJobs";
 import Team from "./Team/Team";
 import Footer from "../Footer/Footer";
