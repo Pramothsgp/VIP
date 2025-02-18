@@ -34,7 +34,7 @@
 }
 @media screen and (max-width:900px) {
     .job-card{
-        flex: 1 1 calc(60%-30px);
+        flex: 1 1 calc(60% - 30px);
     }
 }
 @media screen and (max-width:620px) {
